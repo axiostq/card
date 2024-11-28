@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Select Display</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      class="container mx-auto mt-10 flex items-center justify-center h-screen"
+    >
+      <div class="w-[444px] p-5 bg-white shadow-lg">
+        <img class="w-8 h-8" src="icon_large.svg" alt="" />
+        <div class="text-center mt-2">
+          <img
+            id="displayImage"
+            src="img/silver.png"
+            alt="Apple Pro Display XDR"
+            class="w-72 mx-auto transition-all duration-300"
+          />
+          <div class="mt-4 flex justify-center space-x-4">
+            <label class="inline-flex items-center cursor-pointer">
+              <input
+                type="radio"
+                name="color"
+                value="silver"
+                class="hidden color-radio"
+                checked
+              />
+              <img
+                src="img/silver_select.png"
+                class="color-select w-7 h-7 mx-"
+              />
+            </label>
+            <label class="inline-flex items-center cursor-pointer">
+              <input
+                type="radio"
+                name="color"
+                value="blue"
+                class="hidden color-radio"
+              />
+              <img
+                src="img/bule_select.png"
+                class="color-select w-7 h-7 mx-2"
+              />
+            </label>
+            <label class="img/inline-flex items-center cursor-pointer">
+              <input
+                type="radio"
+                name="color"
+                value="pink"
+                class="hidden color-radio"
+              />
+              <img
+                src="img/pink_select.png"
+                class="color-select w-7 h-7 mx-2"
+              />
+            </label>
+            <label class="img/inline-flex items-center cursor-pointer">
+              <input
+                type="radio"
+                name="color"
+                value="yellow"
+                class="hidden color-radio"
+              />
+              <img
+                src="img/yellow_select.png"
+                class="color-select w-7 h-7 mx-2"
+              />
+            </label>
+          </div>
+          <h4 class="text-xl font-semibold mt-2">iPad</h4>
+          <h6 class="mt-0 text-gray-500">Apple iPad Gen 10 Display XDR</h6>
+        </div>
+        <div class="mt-2">
+      
+        </div>
+        <div class="flex gap-2 mb-5 justify-center font-bold mt-4 text-gray-800">
+          <span>From</span><span>$7,197.00</span>
+        </div>
+        <div class="flex justify-center">
+          <button
+            type="button"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-lg px-7 py-2 text-center me-2 mb-2"
+          >
+            Buy
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const displayImage = document.getElementById("displayImage");
+        const colorSelects = document.querySelectorAll(".color-select");
+        const colorRadios = document.querySelectorAll(".color-radio");
+
+        const imageUrls = {
+          silver: "img/silver.png",
+          blue: "img/blue.png",
+          pink: "img/pink.png",
+          yellow: "img/yellow.png",
+        };
+
+        colorSelects.forEach((select, index) => {
+          select.addEventListener("click", () => {
+            colorRadios[index].checked = true;
+            displayImage.src = imageUrls[colorRadios[index].value];
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
